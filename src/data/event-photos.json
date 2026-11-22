@@ -1,0 +1,308 @@
+{
+  "about": [
+    {
+      "file": "arduino1.PNG",
+      "slug": "arduino1",
+      "width": 937,
+      "height": 498
+    },
+    {
+      "file": "lab-image.png",
+      "slug": "lab-image",
+      "width": 2000,
+      "height": 1125
+    },
+    {
+      "file": "lab-photo.jpeg",
+      "slug": "lab-photo",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "mod-visit.jpeg",
+      "slug": "mod-visit",
+      "width": 2000,
+      "height": 1506
+    }
+  ],
+  "events/3d-printing-workshops": [
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.29.55 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-29-55-pm-1",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.29.56 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-29-56-pm-1",
+      "width": 1280,
+      "height": 960
+    }
+  ],
+  "events/ai-impact-summit": [
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.30.17 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-30-17-pm-1",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.31.44 PM (2).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-31-44-pm-2",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.31.45 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-31-45-pm-1",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.31.45 PM (2).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-31-45-pm-2",
+      "width": 720,
+      "height": 1280
+    }
+  ],
+  "events/arduino-workshop": [
+    {
+      "file": "WhatsApp Image 2026-06-30 at 3.25.13 PM.jpeg",
+      "slug": "whatsapp-image-2026-06-30-at-3-25-13-pm",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "file": "WhatsApp Image 2026-06-30 at 3.25.15 PM (2).jpeg",
+      "slug": "whatsapp-image-2026-06-30-at-3-25-15-pm-2",
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "file": "WhatsApp Image 2026-07-02 at 3.23.29 PM (3).jpeg",
+      "slug": "whatsapp-image-2026-07-02-at-3-23-29-pm-3",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-07-02 at 3.23.31 PM.jpeg",
+      "slug": "whatsapp-image-2026-07-02-at-3-23-31-pm",
+      "width": 1052,
+      "height": 780
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.29.48 PM.jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-29-48-pm",
+      "width": 1200,
+      "height": 1600
+    }
+  ],
+  "events/defence-visit": [
+    {
+      "file": "IMG-20260928-WA0037.jpg.jpeg",
+      "slug": "img-20260928-wa0037-jpg",
+      "width": 2000,
+      "height": 1506
+    },
+    {
+      "file": "IMG-20260928-WA0042.jpg.jpeg",
+      "slug": "img-20260928-wa0042-jpg",
+      "width": 2000,
+      "height": 1506
+    },
+    {
+      "file": "WhatsApp Image 2026-10-04 at 4.38.12 PM.jpeg",
+      "slug": "whatsapp-image-2026-10-04-at-4-38-12-pm",
+      "width": 1200,
+      "height": 1599
+    },
+    {
+      "file": "WhatsApp Image 2026-10-04 at 4.38.13 PM.jpeg",
+      "slug": "whatsapp-image-2026-10-04-at-4-38-13-pm",
+      "width": 1200,
+      "height": 1599
+    },
+    {
+      "file": "WhatsApp Image 2026-10-04 at 4.38.15 PM.jpeg",
+      "slug": "whatsapp-image-2026-10-04-at-4-38-15-pm",
+      "width": 1200,
+      "height": 1599
+    }
+  ],
+  "events/freshers-tour": [
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.29.57 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-29-57-pm-1",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.29.57 PM.jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-29-57-pm",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.29.58 PM (2).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-29-58-pm-2",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.29.58 PM.jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-29-58-pm",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.29.59 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-29-59-pm-1",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.30.00 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-30-00-pm-1",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.30.00 PM.jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-30-00-pm",
+      "width": 1280,
+      "height": 960
+    }
+  ],
+  "events/hardware-hackathon": [
+    {
+      "file": "new_1.jpeg",
+      "slug": "new-1",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "new_2.jpeg",
+      "slug": "new-2",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "new_3.jpeg",
+      "slug": "new-3",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "new_4.jpeg",
+      "slug": "new-4",
+      "width": 1600,
+      "height": 1200
+    }
+  ],
+  "events/open-day": [
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.40.17 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-40-17-pm-1",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.40.20 PM (2).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-40-20-pm-2",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.40.21 PM (2).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-40-21-pm-2",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.40.26 PM (2).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-40-26-pm-2",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.40.34 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-40-34-pm-1",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.40.34 PM (3).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-40-34-pm-3",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.40.39 PM.jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-40-39-pm",
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "file": "WhatsApp Image 2026-11-19 at 1.40.45 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-19-at-1-40-45-pm-1",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-11-20 at 1.34.11 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-20-at-1-34-11-pm-1",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-11-20 at 1.34.13 PM (2).jpeg",
+      "slug": "whatsapp-image-2026-11-20-at-1-34-13-pm-2",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-11-20 at 1.34.13 PM.jpeg",
+      "slug": "whatsapp-image-2026-11-20-at-1-34-13-pm",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-11-20 at 1.34.15 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-11-20-at-1-34-15-pm-1",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-11-20 at 1.34.20 PM.jpeg",
+      "slug": "whatsapp-image-2026-11-20-at-1-34-20-pm",
+      "width": 1200,
+      "height": 1600
+    }
+  ],
+  "events/sil-launch": [
+    {
+      "file": "WhatsApp Image 2026-03-16 at 4.09.27 PM.jpeg",
+      "slug": "whatsapp-image-2026-03-16-at-4-09-27-pm",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-03-16 at 4.09.30 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-03-16-at-4-09-30-pm-1",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "WhatsApp Image 2026-03-16 at 4.09.31 PM (1).jpeg",
+      "slug": "whatsapp-image-2026-03-16-at-4-09-31-pm-1",
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "WhatsApp Image 2026-03-16 at 4.09.34 PM.jpeg",
+      "slug": "whatsapp-image-2026-03-16-at-4-09-34-pm",
+      "width": 1280,
+      "height": 960
+    }
+  ]
+}

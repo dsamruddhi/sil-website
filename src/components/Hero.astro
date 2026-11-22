@@ -1,0 +1,292 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section id="home" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+  <!-- Grid background -->
+  <div class="absolute inset-0 bg-repeat bg-[length:400px] opacity-[0.06]" style={`background-image: url('${base}circuit.png')`} aria-hidden="true"></div>
+
+  <!-- Coordinate axes decoration -->
+  <div class="absolute bottom-8 left-8 hidden lg:block" aria-hidden="true">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" class="text-ink/15">
+      <line x1="0" y1="70" x2="70" y2="70" stroke="currentColor" stroke-width="1"/>
+      <line x1="10" y1="80" x2="10" y2="10" stroke="currentColor" stroke-width="1"/>
+      <polygon points="70,67 70,73 76,70" fill="currentColor"/>
+      <polygon points="7,10 13,10 10,4" fill="currentColor"/>
+      <text x="74" y="74" font-family="monospace" font-size="8" fill="currentColor">x</text>
+      <text x="2" y="8" font-family="monospace" font-size="8" fill="currentColor">y</text>
+    </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-12">
+    <!-- Hero visual: center logo with background images. --logo-w sets the logo size. -->
+    <div class="relative flex items-center justify-center mb-10 lg:mb-14 [--logo-w:12.6rem] sm:[--logo-w:15.75rem] md:[--logo-w:18.9rem] lg:[--logo-w:22.05rem] xl:[--logo-w:25.2rem]">
+
+      <!-- Background images positioned around the logo -->
+      <!-- Robots — left side, vertically centered -->
+      <img
+        src={`${base}robots-removebg-preview.png`}
+        alt=""
+        role="presentation"
+        class="absolute left-0 bottom-0 w-48 lg:w-64 xl:w-72 h-auto opacity-70 hidden md:block pointer-events-none"
+      />
+      <!-- Spider bot — left side, towards the top -->
+      <img
+        src={`${base}drone2-removebg-preview.png`}
+        alt=""
+        role="presentation"
+        class="absolute left-0 lg:left-4 top-12 w-32 lg:w-44 xl:w-52 h-auto opacity-60 hidden md:block pointer-events-none"
+      />
+      <!-- Drone — right side, towards the top -->
+      <img
+        src={`${base}drone1-removebg-preview.png`}
+        alt=""
+        role="presentation"
+        class="absolute right-0 lg:right-8 top-16 w-40 lg:w-56 xl:w-64 h-auto opacity-70 hidden md:block pointer-events-none"
+      />
+
+      <!-- Robotic arm — right side, bottom -->
+      <img
+        src={`${base}robotic-arm-removebg-preview.png`}
+        alt=""
+        role="presentation"
+        class="absolute right-0 lg:right-4 bottom-0 w-40 lg:w-56 xl:w-64 h-auto opacity-70 hidden md:block pointer-events-none"
+      />
+
+      <!-- Left SVG animations removed; see git history to restore -->
+
+      <!-- Center: Logo image -->
+      <div class="relative z-10 flex-shrink-0 reveal" style="animation-delay: 0.1s">
+        <img
+          src={`${base}sil-logo.png`}
+          alt="Student Innovation Lab logo — S, I, L formed from Arduino boards, robotics, circuits, and engineering components"
+          class="w-[var(--logo-w)] h-auto drop-shadow-sm mx-auto"
+        />
+        <div class="text-center max-w-xl mx-auto mt-8">                                                                                                    
+          <h1 class="text-display-md mb-4 reveal" style="animation-delay: 0.15s">                                                                          
+            Student Innovation <span class="text-red">Lab</span>                                                                                           
+          </h1>
+          <h2 class="text-lg mb-4 reveal" style="animation-delay: 0.15s">                                                                          
+            Department of Electrical Engineering, IIT Delhi                                                                                           
+          </h2>                                                                                                                                            
+          <p class="text-sm sm:text-base text-ink/60 leading-relaxed mb-6 reveal" style="animation-delay: 0.25s">                                          
+            <!-- A hands-on engineering lab where students explore robotics, intelligent systems, and the future of human–technology interaction. -->
+            A vibrant innovation ecosystem with cutting-edge infrastructure delivering significant research impact and viable commercialization pathways 
+               
+          </p>                                                                                                                                             
+          <div class="flex flex-wrap justify-center gap-4 mb-6 reveal" style="animation-delay: 0.35s">                                                     
+            <a href="#projects" class="btn-primary">Explore Projects</a>                                                                                   
+            <a href="#contact" class="btn-secondary">Join the Lab</a>                                                                                      
+          </div>
+        </div>           
+      </div>
+
+      <!-- Right SVG animations removed; see git history to restore -->
+    </div>
+
+      <!-- Discipline tags -->
+      <div class="flex flex-wrap justify-center gap-3 reveal" style="animation-delay: 0.4s">
+        {['Machine Learning & Deep Learning', 
+          'Wireless Communication',
+          'Multisensory Signal Processing',
+          'Computer Science & Engineering',
+          'Integrated Electronics and Circuits',
+          'Power Systems &  Engineering',
+          'IoT & Embedded Systems',
+          'Control, Automation & Robotics'].map((d) => (
+          <span class="tag">{d}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* === Phase 1: Draw-in (plays once on load) === */
+  .hero-draw {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: heroDrawLine 2.5s ease-out forwards;
+  }
+  .hero-node {
+    opacity: 0;
+    animation: heroNodeAppear 0.5s ease-out forwards;
+  }
+  .n1 { animation-delay: 0.8s; }
+  .n2 { animation-delay: 1.0s; }
+  .n3 { animation-delay: 1.2s; }
+  .n4 { animation-delay: 1.4s; }
+  .n5 { animation-delay: 1.6s; }
+  .hero-pulse {
+    animation: heroPulse 3s ease-in-out infinite;
+  }
+
+  /* Gripper lines — draw in, then idle takes over */
+  .hero-gripper {
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: heroDrawGripper 1s ease-out forwards 1.8s;
+  }
+
+  /* Signal dots hidden until idle phase */
+  .hero-signal-dot { opacity: 0; }
+
+  /* Feedback loop — always marching once drawn */
+  .hero-feedback {
+    animation: heroDashMarch 3s linear infinite;
+  }
+
+  /* === Phase 2: Idle animations (activated by .hero-idle class) === */
+
+  .hero-idle .hero-arm-upper {
+    animation: heroArmSway 6s ease-in-out infinite;
+  }
+  .hero-idle .hero-gripper-l {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: heroGripperL 4s ease-in-out infinite;
+  }
+  .hero-idle .hero-gripper-r {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: heroGripperR 4s ease-in-out infinite;
+  }
+  .hero-idle .hero-node-idle.n1 { animation: heroNodeBreath 5s ease-in-out infinite; }
+  .hero-idle .hero-node-idle.n2 { animation: heroNodeBreath 5s ease-in-out infinite 0.5s; }
+  .hero-idle .hero-node-idle.n3 { animation: heroNodeBreath 5s ease-in-out infinite 1s; }
+  .hero-idle .hero-node-idle.n4 { animation: heroNodeBreath 5s ease-in-out infinite 0.2s; }
+  .hero-idle .hero-node-idle.n5 { animation: heroNodeBreath 5s ease-in-out infinite 1.5s; }
+
+  .hero-idle .hero-signal-dot {
+    animation: heroSignalDot 2.5s ease-in-out infinite;
+  }
+  .hero-idle .sd1 { animation-duration: 2.5s; animation-delay: 0s; }
+  .hero-idle .sd2 { animation-duration: 2.8s; animation-delay: 0.4s; }
+  .hero-idle .sd3 { animation-duration: 2.2s; animation-delay: 1s; }
+  .hero-idle .sd4 { animation-duration: 3s; animation-delay: 0.8s; }
+  .hero-idle .sd5 { animation-duration: 2.6s; animation-delay: 1.5s; }
+
+  .hero-idle .hero-wave-1 {
+    animation: heroWaveShift 4s ease-in-out infinite;
+  }
+  .hero-idle .hero-wave-2 {
+    animation: heroWaveShift 4.5s ease-in-out infinite reverse;
+  }
+  .hero-idle .hero-bar {
+    transform-origin: 370px 134px;
+    animation: heroBarPulse 3s ease-in-out infinite;
+  }
+  .hero-idle .hero-text-line {
+    animation: heroTextFlicker 4s ease-in-out infinite;
+  }
+  .hero-idle .tl2 { animation-delay: 0.5s; }
+
+  .hero-idle .hero-trace-end {
+    animation: heroPulse 2.5s ease-in-out infinite;
+  }
+  .hero-idle .ht1 {
+    stroke-dasharray: 10 190;
+    animation: heroTraceSignal 2.5s linear infinite;
+  }
+  .hero-idle .ht2 {
+    stroke-dasharray: 10 190;
+    animation: heroTraceSignal 2s linear infinite 0.5s;
+  }
+
+  /* === Keyframes === */
+  @keyframes heroDrawLine {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes heroDrawGripper {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes heroNodeAppear {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes heroPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  @keyframes heroArmSway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(1.5deg); }
+  }
+  @keyframes heroGripperL {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-1.5px); }
+  }
+  @keyframes heroGripperR {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(1.5px); }
+  }
+  @keyframes heroNodeBreath {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.06); opacity: 1; }
+  }
+  @keyframes heroSignalDot {
+    0% { opacity: 0; }
+    15% { opacity: 0.7; }
+    85% { opacity: 0.7; }
+    100% { opacity: 0; }
+  }
+  @keyframes heroWaveShift {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+  }
+  @keyframes heroBarPulse {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(1.35); }
+  }
+  @keyframes heroTextFlicker {
+    0%, 40%, 60%, 100% { opacity: 0.1; }
+    50% { opacity: 0.22; }
+  }
+  @keyframes heroDashMarch {
+    to { stroke-dashoffset: -14; }
+  }
+  @keyframes heroTraceSignal {
+    from { stroke-dashoffset: 200; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* === Reduced motion === */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-draw, .hero-gripper {
+      stroke-dashoffset: 0;
+      stroke-dasharray: none;
+      animation: none;
+    }
+    .hero-node, .hero-node-idle {
+      opacity: 1;
+      animation: none;
+    }
+    .hero-pulse, .hero-trace-end {
+      animation: none;
+      opacity: 0.7;
+    }
+    .hero-arm-upper,
+    .hero-gripper-l, .hero-gripper-r,
+    .hero-wave-1, .hero-wave-2,
+    .hero-bar, .hero-text-line,
+    .hero-feedback {
+      animation: none;
+    }
+    .hero-signal-dot {
+      display: none;
+    }
+    .hero-trace, .ht1, .ht2 {
+      animation: none;
+      stroke-dashoffset: 0;
+      stroke-dasharray: none;
+    }
+  }
+</style>
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setTimeout(() => {
+      document.querySelectorAll('.hero-svg').forEach(svg => svg.classList.add('hero-idle'));
+    }, 3000);
+  }
+</script>

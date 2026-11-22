@@ -1,0 +1,76 @@
+---
+import { contact } from '../data/contact';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<section id="contact" class="pt-8 pb-24 lg:pb-32 relative">
+  <div class="absolute inset-0 gear-bg" aria-hidden="true"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="flex items-baseline gap-4 mb-6 reveal">
+      <span class="section-number">08</span>
+      <span class="section-label">Contact</span>
+      <div class="flex-1 h-px bg-ink/10"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-16">
+    <div class="reveal">
+      <h2 class="text-display-md mb-4">
+        Let's build<br/>
+        <span class="text-red">something together.</span>
+      </h2>
+      <p class="text-ink/70 leading-relaxed mb-8">
+        Whether you want to join the lab, propose a collaboration, or just see what we're working on—reach out. We're always interested in new ideas and new people.
+      </p>
+
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 border border-ink/15 flex items-center justify-center flex-shrink-0">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6B0624" stroke-width="1.2" aria-hidden="true">
+              <rect x="1" y="3" width="14" height="10" rx="1.5"/>
+              <path d="M1 4.5L8 9L15 4.5"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-mono text-xs text-ink/40 mb-1">Email</p>
+            <!-- Contact details are set in src/data/contact.ts -->
+            <p class="text-sm font-medium">{contact.name}</p>
+            <p class="text-sm text-ink/60 mb-1">{contact.role}</p>
+            <a href={`mailto:${contact.email}`} class="text-sm font-medium text-red hover:underline underline-offset-2">{contact.email}</a>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 border border-ink/15 flex items-center justify-center flex-shrink-0">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6B0624" stroke-width="1.2" aria-hidden="true">
+              <path d="M8 1C5 1 2 4 2 7C2 11 8 15 8 15C8 15 14 11 14 7C14 4 11 1 8 1Z"/>
+              <circle cx="8" cy="7" r="2"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-mono text-xs text-ink/40 mb-1">Address</p>
+            <address class="not-italic text-sm font-medium leading-relaxed">
+              {contact.address.map((line) => <span class="block">{line}</span>)}
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IIT Delhi campus photo -->
+    <figure class="reveal lg:self-center" style="animation-delay: 0.15s">
+      <div class="border border-ink/10 bg-beige p-2 sm:p-3">
+        <img
+          src={`${base}contact/iit-delhi.png`}
+          alt="Main building of the Indian Institute of Technology Delhi"
+          width="643"
+          height="429"
+          loading="lazy"
+          decoding="async"
+          class="block w-full h-auto"
+        />
+      </div>
+    </figure>
+    </div>
+  </div>
+</section>

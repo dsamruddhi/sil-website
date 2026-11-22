@@ -1,0 +1,88 @@
+---
+import { facilities, type Facility } from '../data/facilities';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
+const spanClass: Record<Facility['span'], string> = {
+  wide: 'md:col-span-2 lg:col-span-4',
+  narrow: 'md:col-span-2 lg:col-span-2',
+  full: 'md:col-span-2 lg:col-span-6',
+  half: 'md:col-span-1 lg:col-span-3',
+};
+
+const imageGridClass: Record<Facility['span'], string> = {
+  wide: 'grid-cols-2 lg:grid-cols-4',
+  narrow: 'grid-cols-1 lg:flex-1',
+  full: 'grid-cols-1 sm:grid-cols-3',
+  half: 'grid-cols-2',
+};
+
+// Robotics tiles go in one row of smaller portrait tiles on desktop; the AI
+// photo stretches to fill its box so the two boxes in that row line up.
+const figureClass: Record<Facility['span'], string> = {
+  wide: 'aspect-[4/3] lg:aspect-[3/4]',
+  narrow: 'aspect-[4/3] lg:aspect-auto lg:min-h-[200px]',
+  full: 'aspect-[4/3]',
+  half: 'aspect-[4/3]',
+};
+---
+
+<section id="facilities" class="pt-8 pb-24 lg:pb-32 bg-cream/50 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="flex items-baseline gap-4 mb-6 reveal">
+      <span class="section-number">03</span>
+      <span class="section-label">Facilities</span>
+      <div class="flex-1 h-px bg-ink/10"></div>
+    </div>
+
+    <div class="mb-6 max-w-2xl reveal">
+      <h2 class="text-display-md mb-2">Spaces designed for <span class="text-red">innovation.</span></h2>
+      <p class="text-ink/60 leading-relaxed">
+        <!-- PLACEHOLDER: Replace with actual lab facility details -->
+        Multiple interconnected zones support the full cycle of engineering work—from brainstorming and simulation to physical prototyping and testing.
+      </p>
+    </div>
+
+    <!-- Facility grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-5">
+      {facilities.map((fac, i) => (
+        <div
+          class:list={[
+            'group border border-ink/10 bg-beige p-4 sm:p-5 hover:border-red/30 transition-all duration-300 reveal relative flex flex-col',
+            spanClass[fac.span],
+          ]}
+          style={`animation-delay: ${i * 0.1}s`}
+        >
+          <div class:list={['grid gap-2 sm:gap-3 mb-5', imageGridClass[fac.span]]}>
+            {fac.images.map((img) => (
+              <figure class:list={['relative overflow-hidden bg-ink/5 border border-ink/10', figureClass[fac.span]]}>
+                <img
+                  src={`${base}facilities/${img.src}`}
+                  alt={img.alt}
+                  loading="lazy"
+                  decoding="async"
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  style={img.position ? `object-position: ${img.position}` : undefined}
+                />
+                <figcaption class="absolute left-2 bottom-2 bg-beige/90 text-ink font-mono text-[10px] uppercase tracking-wider px-2 py-1">
+                  {img.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <div class="px-1 sm:px-2 pb-1 mt-auto">
+            <h3 class="font-semibold text-base mb-2">{fac.name}</h3>
+            <p class="text-sm text-ink/55 leading-relaxed">{fac.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+
+    <p class="text-xs text-ink/30 font-mono mt-6 text-right reveal">
+      <!-- PLACEHOLDER: Replace with verified facility information -->
+      * Facility descriptions are illustrative. Contact the lab for current equipment and availability.
+    </p>
+  </div>
+</section>

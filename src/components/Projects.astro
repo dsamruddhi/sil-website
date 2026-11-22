@@ -1,0 +1,161 @@
+---
+import { completedProjects, ongoingProjects } from '../data/projects';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const ongoingCount = ongoingProjects.reduce((n, c) => n + c.items.length, 0);
+---
+
+<section id="projects" class="pt-8 pb-24 lg:pb-32 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-baseline gap-4 mb-6 reveal">
+      <span class="section-number">04</span>
+      <span class="section-label">Projects</span>
+      <div class="flex-1 h-px bg-ink/10"></div>
+    </div>
+
+    <div class="mb-5 reveal">
+      <h2 class="text-display-md mb-2">High-impact <span class="text-red">student projects.</span></h2>
+      <div class="lg:flex lg:items-end lg:justify-between lg:gap-10">
+      <p class="text-ink/60 leading-relaxed max-w-2xl mb-4 lg:mb-0">
+        Built by SIL students: finished SuRGE prototypes and 50+ projects under way.
+      </p>
+
+      <!-- Subtabs -->
+      <div class="flex flex-wrap gap-2 shrink-0" role="tablist" aria-label="Project status">
+        <button
+          type="button"
+          role="tab"
+          id="projects-tab-completed"
+          aria-controls="projects-panel-completed"
+          aria-selected="true"
+          tabindex="0"
+          class="project-tab font-mono text-xs px-4 py-2 border transition-all duration-200"
+        >
+          Completed <span class="opacity-60 ml-1">{completedProjects.length}</span>
+        </button>
+        <button
+          type="button"
+          role="tab"
+          id="projects-tab-ongoing"
+          aria-controls="projects-panel-ongoing"
+          aria-selected="false"
+          tabindex="-1"
+          class="project-tab font-mono text-xs px-4 py-2 border transition-all duration-200"
+        >
+          Ongoing <span class="opacity-60 ml-1">{ongoingCount}</span>
+        </button>
+      </div>
+      </div>
+    </div>
+
+    <!-- Completed: one card per project -->
+    <div id="projects-panel-completed" role="tabpanel" aria-labelledby="projects-tab-completed" tabindex="0">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {completedProjects.map((p, i) => (
+          <article
+            class="group border border-ink/10 bg-beige hover:border-red/30 transition-colors duration-300 reveal flex flex-col"
+            style={`animation-delay: ${(i % 4) * 0.08}s`}
+          >
+            <button
+              type="button"
+              class="relative block aspect-[16/9] overflow-hidden border-b border-ink/10 bg-ink/5 cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-red focus-visible:-outline-offset-2"
+              aria-label={`View the ${p.title} poster full screen`}
+              data-lightbox-title={p.title}
+              data-lightbox-photos={JSON.stringify([{ src: `${base}project-images/${p.poster}`, alt: `${p.title} project poster` }])}
+            >
+              <img
+                src={`${base}project-images/${p.image}`}
+                alt={p.alt}
+                width="960"
+                height="540"
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              <span class="absolute bottom-2 right-2 bg-beige/90 text-ink font-mono text-[10px] uppercase tracking-wider px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                View poster
+              </span>
+            </button>
+
+            <div class="px-4 pt-3 pb-3 flex flex-col flex-1">
+              <p class="font-mono text-[10px] uppercase tracking-wider text-red mb-1">{p.area}</p>
+              <h3 class="font-semibold text-[15px] leading-snug">{p.title}</h3>
+              {p.subtitle && <p class="text-[13px] text-ink/70 leading-snug mt-0.5">{p.subtitle}</p>}
+              <p class="text-xs text-ink/55 leading-normal mt-1.5">{p.description}</p>
+              {(p.team || p.supervisor) && (
+                <div class="mt-auto pt-2 font-mono text-[10.5px] text-ink/45 leading-snug">
+                  {p.team && <p>Students: {p.team}</p>}
+                  {p.supervisor && <p>Supervisor: {p.supervisor}</p>}
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <!-- Ongoing: list by category -->
+    <div id="projects-panel-ongoing" role="tabpanel" aria-labelledby="projects-tab-ongoing" tabindex="0" hidden>
+      <p class="font-mono text-xs uppercase tracking-wider text-ink/50 mb-4">SuRGE-SIL 2026 · Research and product development projects</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {ongoingProjects.map((group) => (
+          <div class="border border-ink/10 bg-beige p-5">
+            <div class="flex items-baseline justify-between gap-3 mb-4 pb-3 border-b border-ink/10">
+              <h3 class="font-semibold text-sm uppercase tracking-wide">{group.category}</h3>
+              <span class="font-mono text-[11px] text-ink/40 shrink-0">{group.items.length}</span>
+            </div>
+            <ul class="space-y-2 text-sm text-ink/70 leading-snug">
+              {group.items.map((item) => (
+                <li class="flex gap-2.5">
+                  <span class="mt-[0.45em] w-1.5 h-1.5 bg-red flex-shrink-0" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-tab[aria-selected='true'] {
+    border-color: #6b0624;
+    background: #6b0624;
+    color: #fff;
+  }
+  .project-tab[aria-selected='false'] {
+    border-color: rgb(24 24 24 / 0.2);
+    color: rgb(24 24 24 / 0.6);
+  }
+  .project-tab[aria-selected='false']:hover {
+    border-color: rgb(107 6 36 / 0.5);
+    color: #6b0624;
+  }
+</style>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('#projects [role="tab"]'));
+
+  const select = (tab: HTMLButtonElement, focus = false) => {
+    tabs.forEach((t) => {
+      const active = t === tab;
+      t.setAttribute('aria-selected', String(active));
+      t.tabIndex = active ? 0 : -1;
+      const panel = document.getElementById(t.getAttribute('aria-controls')!);
+      if (panel) panel.hidden = !active;
+    });
+    if (focus) tab.focus();
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        select(tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length], true);
+      }
+    });
+  });
+</script>

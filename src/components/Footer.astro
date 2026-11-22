@@ -1,0 +1,21 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-ink/10 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="font-mono text-xs text-ink/40">
+      <span class="text-red">S</span>IL — Student Innovation Lab &copy; {year}
+    </p>
+    <a
+      href="#home"
+      class="font-mono text-xs text-ink/40 hover:text-red transition-colors inline-flex items-center gap-1.5"
+    >
+      Back to top
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <line x1="5" y1="8" x2="5" y2="2"/>
+        <polyline points="2,4 5,1.5 8,4"/>
+      </svg>
+    </a>
+  </div>
+</footer>

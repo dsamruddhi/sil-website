@@ -1,0 +1,74 @@
+---
+import PhotoCarousel, { type CarouselPhoto } from './PhotoCarousel.astro';
+import photoManifest from '../data/event-photos.json';
+
+// Photos come from photos/about/ (web copies are made automatically).
+// Carousel order by original file name; any other files in the folder follow in name order.
+const aboutPhotoOrder = ['lab-image.png', 'lab-photo.jpeg', 'mod-visit.jpeg', 'arduino1.PNG'];
+// Alt text and cropping per original file name.
+const aboutPhotoOptions: Record<string, { alt: string; position?: string; contain?: boolean }> = {
+  'lab-image.png': { alt: 'Student Innovation Lab wall with the SIL logo, robot drawings, and red worktables' },
+  'lab-photo.jpeg': { alt: 'Student Innovation Lab interior with red worktables and robot wall art' },
+  'mod-visit.jpeg': { alt: 'Visiting delegation with SIL members and robots in front of the SIL wall', position: 'center 80%' },
+  'arduino1.PNG': { alt: 'Group photo of students and faculty in front of the Student Innovation Lab wall', contain: true },
+};
+const rank = (file: string) => {
+  const i = aboutPhotoOrder.indexOf(file);
+  return i === -1 ? aboutPhotoOrder.length : i;
+};
+const aboutPhotos: CarouselPhoto[] = [...((photoManifest as Record<string, { file: string; slug: string }[]>).about ?? [])]
+  .sort((a, b) => rank(a.file) - rank(b.file) || a.file.localeCompare(b.file))
+  .map(
+  ({ file, slug }, i, all) => ({
+    small: `about/${slug}-sm.webp`,
+    large: `about/${slug}-lg.webp`,
+    alt: aboutPhotoOptions[file]?.alt ?? `Student Innovation Lab, photo ${i + 1} of ${all.length}`,
+    position: aboutPhotoOptions[file]?.position,
+    contain: aboutPhotoOptions[file]?.contain,
+  }),
+);
+
+const highlights = [
+  { lead: '24x7 innovation hub.', text: 'A co-working space with cutting-edge infrastructure for students, established in May 2026.' },
+  { lead: 'Interdisciplinary by design & goals.', text: 'Work spans electrical, electronics, computer engineering & AI/ML. Students can pursue research and publications, global competitions, patents, and deep-tech startups.' },
+  { lead: 'State-of-the-art Infrastructure.', text: 'Robotics testbeds, high-performance GPU clusters, embedded hardware, 3D printing and prototyping tools, and more.' },
+  { lead: '50+ active projects.', text: 'Spanning Physical AI, Edge AI, LLMs, autonomous drones, semiconductor and VLSI design, and signal processing.' },
+  { lead: 'Ideas to ventures.', text: 'Unconstrained access to hardware and mentorship to turn theoretical ideas into working prototypes and scalable ventures.' },
+];
+---
+
+<section id="about" class="pt-8 pb-24 lg:pb-32 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="flex items-baseline gap-4 mb-6 reveal">
+      <span class="section-number">02</span>
+      <span class="section-label">About</span>
+      <div class="flex-1 h-px bg-ink/10"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-16">
+      <div class="reveal">
+        <h2 class="text-display-md mb-4">
+          Where theory meets<br/>
+          <span class="text-red">practice.</span>
+        </h2>
+        <ul class="space-y-3 text-ink/70 leading-relaxed">
+          {highlights.map((item) => (
+            <li class="flex gap-3">
+              <span class="mt-[0.6em] w-1.5 h-1.5 bg-red flex-shrink-0" aria-hidden="true"></span>
+              <span><strong class="font-semibold text-ink">{item.lead}</strong> {item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Lab photo -->
+      <figure class="reveal lg:self-center">
+        <div class="border border-ink/10 bg-beige p-2 sm:p-3">
+          <PhotoCarousel photos={aboutPhotos} label="Student Innovation Lab" />
+        </div>
+      </figure>
+    </div>
+
+  </div>
+</section>

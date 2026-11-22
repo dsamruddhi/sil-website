@@ -1,0 +1,63 @@
+---
+// A section of person cards, used by Donors and Team so both look the same.
+import type { Person } from '../data/team';
+
+interface Props {
+  id: string;
+  number: string;
+  label: string;
+  /** Heading text before the red part */
+  heading: string;
+  /** Red part at the end of the heading */
+  headingAccent: string;
+  intro: string;
+  people: Person[];
+}
+
+const { id, number, label, heading, headingAccent, intro, people } = Astro.props;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<section id={id} class="pt-8 pb-24 lg:pb-32 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="flex items-baseline gap-4 mb-6 reveal">
+      <span class="section-number">{number}</span>
+      <span class="section-label">{label}</span>
+      <div class="flex-1 h-px bg-ink/10"></div>
+    </div>
+
+    <div class="mb-5 max-w-2xl reveal">
+      <h2 class="text-display-md mb-1">{heading} <span class="text-red">{headingAccent}</span></h2>
+      <p class="text-ink/60 leading-relaxed">{intro}</p>
+    </div>
+
+    <div class="reveal">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[760px]">
+        {people.map((person) => (
+          <article class="group border border-ink/10 bg-beige p-3 hover:border-red/30 transition-colors duration-300">
+            <div class="relative aspect-square overflow-hidden bg-ink/5">
+              <img
+                src={`${base}${person.photo}`}
+                alt={`Photo of ${person.name}`}
+                width="600"
+                height="750"
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 w-full h-full object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            </div>
+            <div class="px-2 pt-4 pb-1">
+              <p class="font-mono text-[10px] uppercase tracking-wider text-red mb-1.5">{person.tag}</p>
+              <h3 class="font-semibold text-lg leading-tight mb-2.5">{person.name}</h3>
+              <div class="border-t border-ink/10 pt-2.5 space-y-0.5">
+                {person.roles.map((r, i) => (
+                  <p class:list={['text-sm leading-snug', i === 0 ? 'text-ink/75' : 'text-ink/50']}>{r}</p>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

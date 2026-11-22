@@ -1,0 +1,14 @@
+---
+import PeopleSection from './PeopleSection.astro';
+import { donors } from '../data/team';
+---
+
+<PeopleSection
+  id="donors"
+  number="06"
+  label="Donors"
+  heading="Made possible by"
+  headingAccent="our donors."
+  intro="The alumni and supporters whose generosity built SIL."
+  people={donors}
+/>

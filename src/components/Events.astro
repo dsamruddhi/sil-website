@@ -1,0 +1,44 @@
+---
+import { events, getEventPhotos } from '../data/events';
+import PhotoCarousel from './PhotoCarousel.astro';
+
+const PLACEHOLDER_SLIDES = 3;
+---
+
+<section id="events" class="pt-8 pb-24 lg:pb-32 bg-cream/50 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-baseline gap-4 mb-6 reveal">
+      <span class="section-number">05</span>
+      <span class="section-label">Events</span>
+      <div class="flex-1 h-px bg-ink/10"></div>
+    </div>
+
+    <div class="mb-6 reveal">
+      <h2 class="text-display-md mb-2">Moments from <span class="text-red">the lab.</span></h2>
+      <p class="text-ink/60 leading-relaxed max-w-2xl">
+        <!-- PLACEHOLDER: Replace with an intro to the lab's events -->
+        Hackathons, workshops, demos, and visits that bring the SIL community together.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {events.map((ev, i) => {
+        const photos = getEventPhotos(ev);
+        return (
+          <article
+            class="group border border-ink/10 bg-beige p-4 sm:p-5 hover:border-red/30 transition-colors duration-300 reveal flex flex-col"
+            style={`animation-delay: ${i * 0.1}s`}
+          >
+            <PhotoCarousel photos={photos} label={ev.title} placeholders={PLACEHOLDER_SLIDES} class="mb-5" />
+
+            <div class="px-1 sm:px-2 pb-1">
+              <p class="font-mono text-[10px] uppercase tracking-wider text-red mb-2">{ev.date}</p>
+              <h3 class="font-semibold text-base mb-2">{ev.title}</h3>
+              <p class="text-sm text-ink/55 leading-relaxed">{ev.description}</p>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

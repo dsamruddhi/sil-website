@@ -1,0 +1,14 @@
+---
+import PeopleSection from './PeopleSection.astro';
+import { teamMembers } from '../data/team';
+---
+
+<PeopleSection
+  id="team"
+  number="07"
+  label="Team"
+  heading="The people behind"
+  headingAccent="the Lab."
+  intro="The faculty who lead and guide SIL."
+  people={teamMembers}
+/>
