@@ -1,7 +1,7 @@
 // Turns original photos into two web-ready copies.
 //
 //   photos/<path>/<any photo>.jpg|jpeg|png|webp|heic   (originals, NOT published)
-//     -> public/<path>/<name>-sm.webp   (~900 px, carousel box)
+//     -> public/<path>/<name>-sm.webp   (~720 px, carousel box)
 //     -> public/<path>/<name>-lg.webp   (~2000 px, full-screen view)
 //     -> src/data/event-photos.json     (photo list per folder, keyed by <path>, in file-name order)
 //
@@ -23,7 +23,7 @@ const PUBLIC_DIR = path.join(ROOT, 'public');
 const MANIFEST = path.join(ROOT, 'src', 'data', 'event-photos.json');
 
 const SIZES = {
-  sm: { box: 900, quality: 78 },
+  sm: { box: 720, quality: 75 },
   lg: { box: 2000, quality: 80 },
 };
 const IMAGE_EXT = /\.(jpe?g|png|webp|tiff?|heic|heif|avif)$/i;

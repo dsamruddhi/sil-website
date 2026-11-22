@@ -65,6 +65,31 @@ const base = import.meta.env.BASE_URL;
       } else {
         document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
       }
+
+      // Once the page has loaded, fetch the photos further down in the background (top to bottom,
+      // a few at a time), so they are ready before the visitor scrolls to them. Skips hidden images,
+      // carousel slides other than the first, and visitors who have turned on data saving.
+      const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+      if (!saveData) {
+        window.addEventListener('load', () => {
+          const queue = Array.from(document.querySelectorAll<HTMLImageElement>('img[loading="lazy"]')).filter((img) => {
+            if (img.complete || img.offsetParent === null) return false;
+            const slide = img.closest('.carousel-track > *');
+            return !slide || slide === slide.parentElement?.firstElementChild;
+          });
+          const next = () => {
+            const img = queue.shift();
+            if (!img) return;
+            if (img.complete) return next();
+            img.addEventListener('load', next, { once: true });
+            img.addEventListener('error', next, { once: true });
+            img.loading = 'eager';
+          };
+          const start = () => { for (let i = 0; i < 3; i++) next(); };
+          if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 2000 });
+          else setTimeout(start, 500);
+        });
+      }
     </script>
   </body>
 </html>
