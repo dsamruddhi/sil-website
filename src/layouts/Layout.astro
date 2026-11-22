@@ -16,6 +16,15 @@ const base = import.meta.env.BASE_URL;
     <meta name="description" content={description} />
     <meta name="theme-color" content="#F3EBDD" />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <!-- Fetch the SIL logo first: it is the main image on the first screen -->
+    <link rel="preload" as="image" href={`${base}sil-logo.webp`} type="image/webp" fetchpriority="high" />
+    <!-- Fonts: connect to Google early and load only the weights the site uses -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
