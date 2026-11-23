@@ -91,13 +91,19 @@ export const facilities: Facility[] = [
   {
     name: 'Electronics & Prototyping Area',
     description:
-      'Rapid fabrication for enclosures, mechanisms, and parts: additive manufacturing, laser cutting and engraving, and permanent laser marking.',
+      'Rapid fabrication for enclosures, mechanisms, and parts: FDM and resin 3D printing, laser cutting and engraving, and permanent laser marking.',
     span: 'full',
     images: [
       {
         src: 'lab-3d-printers.webp',
         caption: 'Bambu Lab H2D 3D printers',
         alt: 'Row of enclosed 3D printers on a counter in the SIL lab',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
+      },
+      {
+        src: 'lab-resin-printer.webp',
+        caption: 'Resin 3D printer',
+        alt: 'UniFormation GK3 Ultra resin 3D printer with a green UV-blocking cover',
         credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
       },
       {
