@@ -86,6 +86,13 @@ export const facilities: Facility[] = [
         alt: 'Rows of server racks in a GPU computing cluster',
         credit: { author: 'CSIRO', license: 'CC BY 3.0', source: 'https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_11313_The_CSIRO_GPU_cluster_at_the_data_centre.jpg' },
       },
+      {
+        src: 'lab-workstation.webp',
+        caption: 'Workstation',
+        alt: 'Lab workstation with a monitor, keyboard, and Lenovo Legion tower PC',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
+        position: 'center 60%',
+      },
     ],
   },
   {
