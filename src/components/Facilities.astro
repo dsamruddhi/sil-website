@@ -19,6 +19,15 @@ const imageGridClass: Record<Facility['span'], string> = {
 
 // Robotics tiles go in one row of smaller portrait tiles on desktop; the AI
 // photo stretches to fill its box so the two boxes in that row line up.
+// The Robotics and AI boxes share a row: give their text blocks the same height
+// on desktop so the two headings line up even though the descriptions differ in length.
+const textClass: Record<Facility['span'], string> = {
+  wide: 'lg:min-h-[8rem]',
+  narrow: 'lg:min-h-[8rem]',
+  full: '',
+  half: '',
+};
+
 const figureClass: Record<Facility['span'], string> = {
   wide: 'aspect-[4/3] lg:aspect-[3/4]',
   narrow: 'aspect-[4/3] lg:aspect-auto lg:min-h-[160px]',
@@ -71,7 +80,7 @@ const figureClass: Record<Facility['span'], string> = {
             ))}
           </div>
 
-          <div class="px-1 sm:px-2 pb-1 mt-auto">
+          <div class:list={['px-1 sm:px-2 pb-1 mt-auto', textClass[fac.span]]}>
             <h3 class="font-semibold text-base mb-2">{fac.name}</h3>
             <p class="text-sm text-ink/55 leading-relaxed">{fac.description}</p>
           </div>
