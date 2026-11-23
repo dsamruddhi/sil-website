@@ -128,24 +128,42 @@ import { navLinks as links } from '../data/nav';
     }
   });
 
-  // Active section tracking
-  const sections = document.querySelectorAll('section[id]');
+  // Active section tracking: the active tab is the last section whose top has
+  // scrolled above a line a third of the way down the screen. Worked out from
+  // positions on every scroll, so tall sections (Facilities, Events) and fast
+  // jumps from the navbar always update the pointer.
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id]'));
   const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+  let currentId = '';
 
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach((link) => {
-            const linkSection = link.getAttribute('data-section');
-            link.classList.toggle('active', linkSection === id);
-          });
-        }
-      });
-    },
-    { threshold: 0.2, rootMargin: '-80px 0px -40% 0px' }
-  );
+  function setActive(id: string) {
+    if (id === currentId) return;
+    currentId = id;
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('data-section') === id);
+    });
+  }
 
-  sections.forEach((section) => sectionObserver.observe(section));
+  function updateActive() {
+    if (!sections.length) return;
+    const line = window.innerHeight / 3;
+    let id = sections[0].id;
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= line) id = section.id;
+      else break;
+    }
+    // At the very bottom of the page the last section may be too short to reach the line
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      id = sections[sections.length - 1].id;
+    }
+    setActive(id);
+  }
+
+  // Cheap enough (8 sections) to run directly on every scroll event
+  window.addEventListener('scroll', updateActive, { passive: true });
+  window.addEventListener('scrollend', updateActive);
+  window.addEventListener('resize', updateActive);
+  window.addEventListener('hashchange', updateActive);
+  window.addEventListener('load', updateActive);
+  updateActive();
 </script>
