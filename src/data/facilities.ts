@@ -21,7 +21,7 @@ export const facilities: Facility[] = [
   {
     name: 'Robotics and Automation Zone',
     description:
-      'Legged, humanoid, and bio-inspired robot platforms for research in locomotion, manipulation, sensing, and autonomy.',
+      'Legged, humanoid, wheeled, aerial, and bio-inspired robots and robotic arms for research in locomotion, manipulation, sensing, and autonomy.',
     span: 'wide',
     images: [
       {
@@ -37,16 +37,40 @@ export const facilities: Facility[] = [
         credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
       },
       {
-        src: 'robotics-snake.webp',
-        caption: 'Snake robot',
-        alt: 'Modular snake robot raising its head off the ground',
-        credit: { author: 'Wikimedia Commons', license: 'Public domain', source: 'https://commons.wikimedia.org/wiki/File:SnakeBot3.jpg' },
-      },
-      {
         src: 'lab-hexapod.webp',
         caption: 'Hexapod',
         alt: 'Six-legged hexapod robot standing on a lab table',
         credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
+      },
+      {
+        src: 'lab-arm.webp',
+        caption: 'Robotic arm',
+        alt: 'Six-axis robotic arm mounted on a lab bench',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
+      },
+      {
+        src: 'lab-drones.webp',
+        caption: 'Drones',
+        alt: 'Quadcopter and hexacopter drones with controllers on a lab table',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
+      },
+      {
+        src: 'lab-rover.webp',
+        caption: 'Rover',
+        alt: 'Four-wheeled rover robot with a camera turret',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
+      },
+      {
+        src: 'lab-rover-limo.webp',
+        caption: 'LIMO rover',
+        alt: 'AgileX LIMO mobile robot on a desk',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
+      },
+      {
+        src: 'robotics-snake.webp',
+        caption: 'Snake robot',
+        alt: 'Modular snake robot raising its head off the ground',
+        credit: { author: 'Wikimedia Commons', license: 'Public domain', source: 'https://commons.wikimedia.org/wiki/File:SnakeBot3.jpg' },
       },
     ],
   },
