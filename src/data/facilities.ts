@@ -25,17 +25,16 @@ export const facilities: Facility[] = [
     span: 'wide',
     images: [
       {
-        src: 'robotics-quadruped.webp',
+        src: 'lab-quadruped.webp',
         caption: 'Quadruped',
-        alt: 'Yellow four-legged quadruped robot walking on a forest trail',
-        credit: { author: 'Jonte', license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Spot_by_Boston_Dynamics.jpg' },
+        alt: 'Four-legged quadruped robot from the SIL lab, seen from above',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
       },
       {
-        src: 'robotics-humanoid.webp',
+        src: 'lab-humanoid.webp',
         caption: 'Humanoid',
-        alt: 'Unitree G1 humanoid robot with a glowing blue face visor',
-        credit: { author: 'Sayanesy', license: 'CC0', source: 'https://commons.wikimedia.org/wiki/File:Unitree_G1.jpg' },
-        position: 'center 10%',
+        alt: 'Black servo-driven humanoid robot standing on a lab bench',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
       },
       {
         src: 'robotics-snake.webp',
@@ -44,10 +43,10 @@ export const facilities: Facility[] = [
         credit: { author: 'Wikimedia Commons', license: 'Public domain', source: 'https://commons.wikimedia.org/wiki/File:SnakeBot3.jpg' },
       },
       {
-        src: 'robotics-spider.webp',
-        caption: 'Spider bot',
-        alt: 'Multi-legged spider robot with exposed servos and electronics',
-        credit: { author: 'VIA Gallery', license: 'CC BY 2.0', source: 'https://commons.wikimedia.org/wiki/File:Spider_Robot_(2824359096).jpg' },
+        src: 'lab-hexapod.webp',
+        caption: 'Hexapod',
+        alt: 'Six-legged hexapod robot standing on a lab table',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
       },
     ],
   },
@@ -72,10 +71,10 @@ export const facilities: Facility[] = [
     span: 'full',
     images: [
       {
-        src: 'fab-3d-printer.webp',
-        caption: 'Bambu Lab H2D 3D printer',
-        alt: 'Enclosed Bambu Lab 3D printer with a small printed boat on its build plate',
-        credit: { author: 'Andrew Kirk', license: 'Public domain', source: 'https://commons.wikimedia.org/wiki/File:3d_printer_Bambu_Lab_H2S.jpg' },
+        src: 'lab-3d-printers.webp',
+        caption: 'Bambu Lab H2D 3D printers',
+        alt: 'Row of enclosed 3D printers on a counter in the SIL lab',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
       },
       {
         src: 'fab-laser-cutter.webp',
@@ -118,10 +117,10 @@ export const facilities: Facility[] = [
     span: 'half',
     images: [
       {
-        src: 'solder-station.webp',
+        src: 'lab-soldering-station.webp',
         caption: 'Soldering station and fume extractor',
-        alt: 'Temperature-controlled soldering station with iron in its stand',
-        credit: { author: 'PtiGaby', license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Le_fer_%C3%A0_souder_%C3%A9lectronique.jpg' },
+        alt: 'Soldering stations and fume extractors on an ESD mat at a lab bench',
+        credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
       },
       {
         src: 'solder-bench.webp',
