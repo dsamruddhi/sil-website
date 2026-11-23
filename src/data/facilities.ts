@@ -51,7 +51,7 @@ export const facilities: Facility[] = [
       {
         src: 'lab-drones.webp',
         caption: 'Drones',
-        alt: 'Quadcopter and hexacopter drones with controllers on a lab table',
+        alt: 'Three drones and their controllers on a lab bench, seen at an angle',
         credit: { author: 'SIL, IIT Delhi', license: 'Own photo', source: '' },
       },
       {
